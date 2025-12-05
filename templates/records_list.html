@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Records{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<h1>All Records: </h1>
+<p><a class="button" href="{{ url_for('create_record') }}">+ Create a New Record</a></p>
+
+    <div class="recordscontainer">
+    {% if records %}
+        {% for record in records %}
+            <div class="infocontainer">
+                <strong>{{ record.title }}</strong>
+
+                {% if record.content %}
+                    <p>{{ record.content }}</p>
+
+                    <a class="button2" href="{{ url_for('delete_record', id=record.id) }}">
+                        <img src="{{ url_for('static', filename='image/trash.png') }}">
+                    </a>
+
+                    <a class="button2" href="{{ url_for('edit_record', id=record.id) }}">
+                        <img src="{{ url_for('static', filename='image/edit.png') }}">
+                    </a>
+
+                    <a class="button2" href="{{ url_for('view_record', id=record.id) }}">
+                        <img src="{{ url_for('static', filename='image/view.png') }}">
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No Records yet. Create your first one!</p>
+    {% endif %}
+
+    </div>
+</div>
+{% endblock %}

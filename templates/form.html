@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ action }}{% endblock %}
+
+{% block content %}
+
+<form action="" method="post">
+    <!-- hidden_tag(): includes CSRF token (prevents CSRF attacks) -->
+    {{ form.hidden_tag() }}
+
+    <div class="createform">
+        <h1><center><strong>- CREATE RECORDS -</strong></center></h1>
+        <div>
+            <h4>TITLE:</h4>
+            {{ form.title(size=50) }}
+
+            {% if form.title.errors %}
+            <ul class="errors">
+                {% for error in form.title.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            <h4>CONTENT:</h4>
+            {{ form.content(rows=7, cols=50) }}
+            {% if form.content.errors %}
+            <ul class="errors">
+                {% for error in form.content.errors %}
+                <li>
+                    {{ error }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.submit(class="button") }}
+        </div>
+    </div>
+</form>
+{% endblock %}

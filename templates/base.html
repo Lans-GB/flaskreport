@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}Flask Report{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="header">
+        <div class="left">
+            <img src="{{ url_for('static', filename='image/file-earmark-bar-graph-fill.png') }}" alt="logo">
+        </div>
+        <div>
+            <h3>Flask Reports Management System</h3>
+        </div>
+
+        <div class="right">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('list_records') }}">Records</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+    <p>© SILVA, LANCE ANDREY C. | BSIT 2107</p>
+    </footer>
+
+</body>
+</html>
