@@ -10,9 +10,10 @@
 
     <div class="createform">
         <h1><center><strong>- CREATE RECORDS -</strong></center></h1>
+        <hr class="line">
         <div>
             <h4>TITLE:</h4>
-            {{ form.title(size=50) }}
+            {{ form.title(size=60) }}
 
             {% if form.title.errors %}
             <ul class="errors">
@@ -25,7 +26,7 @@
 
         <div>
             <h4>CONTENT:</h4>
-            {{ form.content(rows=7, cols=50) }}
+            {{ form.content(rows=7, cols=60) }}
             {% if form.content.errors %}
             <ul class="errors">
                 {% for error in form.content.errors %}
@@ -37,6 +38,7 @@
             {% endif %}
         </div>
         <div>
+            <hr>
             {{ form.submit(class="button") }}
         </div>
     </div>

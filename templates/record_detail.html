@@ -6,7 +6,7 @@
 
 <div class="container">
     <h1>Title: {{ record.title }}</h1>
-
+    <hr class="line">
     {% if record.content %}
         <p>Content: {{ record.content }}</p>
         
@@ -14,7 +14,9 @@
     <p><em>No Content</em></p>
     {% endif %}
 
+    <hr>
     <p>Created: <strong> {{ record.created_at }}</strong></p>
-    <p><a class="button" href="{{ url_for('list_records')}}"> --Back to all records </a></p>
+    <hr>
+    <p><a class="button" href="{{ url_for('list_records')}}"> < Back to all records </a></p>
 </div>
 {% endblock %}
